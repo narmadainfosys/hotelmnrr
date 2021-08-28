@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # get 'cats/index'
   # get 'cat/index'
@@ -6,6 +7,5 @@ Rails.application.routes.draw do
   root "cats#index"
 
   resources :cats
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 end

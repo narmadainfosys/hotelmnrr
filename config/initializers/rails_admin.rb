@@ -21,6 +21,10 @@ RailsAdmin.config do |config|
 
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
+
+  require "nested_form/engine"
+  require "nested_form/builder_mixin"
+  
   # config.show_gravatar = true
 
   config.actions do
