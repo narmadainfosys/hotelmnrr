@@ -3,13 +3,16 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
+  require "nested_form/engine"
+  require "nested_form/builder_mixin"
+  
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+   config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -22,8 +25,6 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
 
-  require "nested_form/engine"
-  require "nested_form/builder_mixin"
   
   # config.show_gravatar = true
 
