@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'dogs/index'
   resources :posts
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
