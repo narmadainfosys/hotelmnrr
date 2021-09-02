@@ -62,3 +62,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'devise'
 
 gem 'cancancan'
+
+# cloudinary
+gem 'carrierwave'
+gem 'cloudinary'

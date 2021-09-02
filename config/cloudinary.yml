@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dya4pkech
+  api_key: '792582788333339'
+  api_secret: "KSvEv8wOggVm4rMkPNk8h2tFzuw"
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dya4pkech
+  api_key: '792582788333339'
+  api_secret: "KSvEv8wOggVm4rMkPNk8h2tFzuw"
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dya4pkech
+  api_key: '792582788333339'
+  api_secret: "KSvEv8wOggVm4rMkPNk8h2tFzuw"
+  enhance_image_tag: true
+  static_file_support: false
