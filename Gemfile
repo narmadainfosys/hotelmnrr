@@ -66,3 +66,5 @@ gem 'cancancan'
 # cloudinary
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem 'airbrake'

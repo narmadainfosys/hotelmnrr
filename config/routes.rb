@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :records
   get 'dogs/index'
   resources :posts
   devise_scope :user do
