@@ -8,12 +8,18 @@
     </nav>
     <!--End Top Nav -->
     <h3 class="text-dark p-3">WELCOME 💻 📱
-        <%= button_to "BUTTON: link version", orders_path, :method => "get" %>
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-<% if current_user %>
-<p>hi</p>
-<% end %>
-<%= current_user.name  %>
+        <%= button_to "ORDER", orders_path, :method => "get" %>
+        <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+        <% if current_user %>
+        <p>hi</p>
+        <% end %>
+        <% if current_user == "Manager" %>
+         Manager
+         <%= button_to "FOOD", foods_path, :method => "get" %>
+        <% else %>
+          Not Mnager
+        <% end %>
+        
 
     </h3>
     <p class="px-3">Place Order</p>
@@ -21,3 +27,14 @@
   </div>
 
   <%= render 'shared/sidejs' %>
+
+
+  <%# <section class="dashboard-counts no-padding-bottom">
+      <div class="container-fluid">
+      <% if current_user.role == "Manager"%>
+          <%# <%= render partial: "shared/bhupi/BankAcc", locals: { bank_accounts: @bank_accounts } %>
+      <%# <% else %>
+         <%# <%= render partial: "shared/bhupi/BankAcc", locals: { bank_accounts: @bank_accounts } %> %>
+      <%# <% end %> %>
+      <%# </div> %>
+    <%# </section> %> %> %> %>

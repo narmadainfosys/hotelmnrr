@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :rooms
   get 'orders/index'
   resources :foods
   resources :posts
