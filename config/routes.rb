@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'orders/index'
+  resources :foods
   resources :posts
   resources :records
   get 'dogs/index'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :pages
+  resources :orders
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # get 'cats/index'

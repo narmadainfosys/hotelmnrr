@@ -1,3 +1,23 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+
+  <%= render 'shared/sidebar' %>
+  <!-- Main Wrapper -->
+  <div class="p-1 my-container active-cont">
+    <!-- Top Nav -->
+    <nav class="navbar top-navbar navbar-light bg-light px-5">
+      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+    </nav>
+    <!--End Top Nav -->
+    <h3 class="text-dark p-3">WELCOME 💻 📱
+        <%= button_to "BUTTON: link version", orders_path, :method => "get" %>
 <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<% if current_user %>
+<p>hi</p>
+<% end %>
+<%= current_user.name  %>
+
+    </h3>
+    <p class="px-3">Place Order</p>
+    <p class="px-3"><a href="https://github.com/harshitjain-hj" class="text-dark">Checkout my Github</a></p>
+  </div>
+
+  <%= render 'shared/sidejs' %>
