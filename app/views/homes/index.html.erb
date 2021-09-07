@@ -16,8 +16,11 @@
         <% if current_user == "Manager" %>
          Manager
          <%= button_to "FOOD", foods_path, :method => "get" %>
+         <%= button_to "ROOM", rooms_path, :method => "get" %>
         <% else %>
           Not Mnager
+          <%= render partial: "shared/order_food", locals: { foods: @foods } %>
+          <%= render partial: "shared/book_room", locals: { rooms: @rooms } %>
         <% end %>
         
 
@@ -29,12 +32,4 @@
   <%= render 'shared/sidejs' %>
 
 
-  <%# <section class="dashboard-counts no-padding-bottom">
-      <div class="container-fluid">
-      <% if current_user.role == "Manager"%>
-          <%# <%= render partial: "shared/bhupi/BankAcc", locals: { bank_accounts: @bank_accounts } %>
-      <%# <% else %>
-         <%# <%= render partial: "shared/bhupi/BankAcc", locals: { bank_accounts: @bank_accounts } %> %>
-      <%# <% end %> %>
-      <%# </div> %>
-    <%# </section> %> %> %> %>
+ 

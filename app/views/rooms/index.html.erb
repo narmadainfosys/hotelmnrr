@@ -20,9 +20,10 @@
         <td><%= room.room_no %></td>
         <td><%= room.availabilty %></td>
         <td><%= room.price %></td>
-        <td><%= room.image %></td>
         <td><%= room.floor %></td>
-        <td><img src="<%=@post.image%>"/></td>
+        <td>
+        <img src="<%=room.image%>"/>
+        </td>
         <td><%= link_to 'Show', room %></td>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
         <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
