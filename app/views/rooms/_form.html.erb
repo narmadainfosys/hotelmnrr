@@ -26,10 +26,11 @@
     <%= form.text_field :price %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
+  <fieldset>
+    <%= form.label :image, 'image' %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.file_field :image%>
+  </fieldset>
 
   <div class="field">
     <%= form.label :floor %>
