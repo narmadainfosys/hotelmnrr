@@ -16,6 +16,12 @@
         <i class="bx bx-conversation"></i>
         <span class="mx-2">Contact</span>
       </li>
+      <li href="#" class="nav-link">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="mx-2">
+          <%= link_to "logout", destroy_user_session_path, method: :delete  %>
+        </span>
+      </li>
     </ul>
 
     <span href="#" class="nav-link h4 w-100 mb-5">

@@ -9,14 +9,9 @@
     <!--End Top Nav -->
     <h3 class="text-dark p-3">WELCOME 💻 📱
         <%= button_to "ORDER", orders_path, :method => "get" %>
-        <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-        <% if current_user %>
-        <p>hi</p>
-        <% end %>
         <% if current_user == "Manager" %>
-         Manager
-         <%= button_to "FOOD", foods_path, :method => "get" %>
-         <%= button_to "ROOM", rooms_path, :method => "get" %>
+        <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
+        
         <% else %>
           Not Mnager
           <%= render partial: "shared/order_food", locals: { foods: @foods } %>
