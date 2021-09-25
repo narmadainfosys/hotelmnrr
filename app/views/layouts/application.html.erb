@@ -23,7 +23,17 @@
   </head>
 
   <body>
-  
+   <%= render 'shared/sidebar' %>
+  <!-- Main Wrapper -->
+  <div class="p-1 my-container active-cont">
+    <!-- Top Nav -->
+    <nav class="navbar top-navbar navbar-light bg-light px-5">
+      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+    </nav>
+    <!--End Top Nav -->
     <%= yield %>
+     </div>
+
+  <%= render 'shared/sidejs' %>
   </body>
 </html>

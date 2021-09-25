@@ -1,14 +1,6 @@
 
-  <%= render 'shared/sidebar' %>
-  <!-- Main Wrapper -->
-  <div class="p-1 my-container active-cont">
-    <!-- Top Nav -->
-    <nav class="navbar top-navbar navbar-light bg-light px-5">
-      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
-    </nav>
-    <!--End Top Nav -->
+ 
     <h3 class="text-dark p-3">WELCOME 💻 📱
-        <%= button_to "ORDER", orders_path, :method => "get" %>
         <% if current_user == "Manager" %>
         <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
         
@@ -20,11 +12,10 @@
         
 
     </h3>
-    <p class="px-3">Place Order</p>
-    <p class="px-3"><a href="https://github.com/harshitjain-hj" class="text-dark">Checkout my Github</a></p>
-  </div>
+ 
 
-  <%= render 'shared/sidejs' %>
+
+ 
 
 
  
