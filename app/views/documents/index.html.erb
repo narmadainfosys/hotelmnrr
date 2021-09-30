@@ -1,0 +1,21 @@
+                                        
+                                        <div class="mt-4 ml-4 mb-2">
+                                            <%= link_to new_document_path, style:"text-decoration:none; font-size: 20px;" do %>
+                                            add document <i class="fas fa-plus-circle ml-2"></i>
+                                            <% end %>   
+                                        </div>
+
+<% @documents.each do |document| %>
+                                <%= link_to document_path(document), style: "text-decoration: none;" do %>
+                                <div class="">
+                            
+        <img src="<%=document.image%>"/>
+        
+                                    <span class="pull-right"><%= link_to "Apply now" ,document_path(document), style: "text-decoration: none; font-weight: bold;" %> </span>
+                                </div>
+                                <%end%>
+                                <div>
+                                    <%= link_to  document, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                                </div>
+
+                            <%end%>

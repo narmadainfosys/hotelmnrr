@@ -1,0 +1,19 @@
+<%= form_for @document do |f| %>
+
+	<div class="">
+		<div class="field">
+  <fieldset>
+  <%= f.label :image, 'image' %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.file_field :image%>
+</fieldset>
+
+  </div>
+        <%= link_to :back do %><span class="">cancel</span><% end %>
+		</div>
+		<div class="">
+		<%= f.submit "add" , class:"" %>
+		</div>
+	</div>
+
+<% end %>
