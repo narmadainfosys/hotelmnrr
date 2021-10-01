@@ -1,9 +1,9 @@
 <!-- Side-Nav -->
   <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column sidebar" id="mySidebar">
     <ul class="nav flex-column text-white w-100">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="javascript:void(0)" class="closebtn nostyle" onclick="closeNav()">×</a>
       <a href="#" class="nav-link h3 text-white my-2">
-        Responsive </br>SideBar Nav
+        HMS
       </a>
       <li href="#" class="nav-link">
         <i class="bx bxs-dashboard"></i>
@@ -18,11 +18,10 @@
         <span class="mx-2">Contact</span>
       </li>
       <li href="#" class="nav-link">
-        <i class="fas fa-sign-out-alt"></i>
-        <span class="mx-2">
-          <%= link_to "logout", destroy_user_session_path, method: :delete  %>
-        </span>
-        
+          <%= link_to  destroy_user_session_path, method: :delete, class: 'nostyle' do%>
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="mx-2">Contact</span>
+          <% end %>
       </li>
     </ul>
 

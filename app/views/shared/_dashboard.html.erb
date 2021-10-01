@@ -8,9 +8,11 @@
           FOOD ENTRY
         </h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <button type="button" class="btn btn-primary">
-          <%= link_to "FOOD", foods_path, :method => "get" %>
-        </button>
+          <%= link_to foods_path, :method => "get" do%>
+            <button type="button" class="btn btn-primary">
+              FOOD
+            </button>
+          <% end %>
       </div>
     </div>
 
@@ -22,9 +24,11 @@
           ROOM ENTRY
         </h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <button type="button" class="btn btn-primary">
-          <%= link_to "ROOM", rooms_path, :method => "get" %>
-        </button>
+          <%= link_to rooms_path, :method => "get" do %>
+            <button type="button" class="btn btn-primary">
+              ROOM
+            </button>
+          <% end %>
       </div>
     </div>
 
