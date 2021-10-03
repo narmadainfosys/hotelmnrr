@@ -1,21 +1,31 @@
-                                        
-                                        <div class="mt-4 ml-4 mb-2">
-                                            <%= link_to new_document_path, style:"text-decoration:none; font-size: 20px;" do %>
-                                            add document <i class="fas fa-plus-circle ml-2"></i>
-                                            <% end %>   
-                                        </div>
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+  <h4>document Department</h4>
+<main>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    <%= link_to  new_document_path do %>
+            <button type="button" class="btn btn-primary mb-3">
+              ADD document
+            </button>
+          <% end %>
 
-<% @documents.each do |document| %>
-                                <%= link_to document_path(document), style: "text-decoration: none;" do %>
-                                <div class="">
-                            
-        <img src="<%=document.image%>"/>
-        
-                                    <span class="pull-right"><%= link_to "Apply now" ,document_path(document), style: "text-decoration: none; font-weight: bold;" %> </span>
-                                </div>
-                                <%end%>
-                                <div>
-                                    <%= link_to  document, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
-                                </div>
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+          <% @documents.each do |document| %>
+            <div class="col">
+                <div class="card h-100 shadow-sm"> <img src="<%= document.image %>" class="card-img-top" alt="...">
+                    <div class="label-top shadow-sm"> document.availabilty </div>
+                    <div class="card-body">
+                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">document no</span> <span class="float-end price-hp">price</span> </div>
+                        <h5 class="card-title">document description <br><%= link_to 'Show', document %>,<%= link_to  edit_document_path(document) do %><i class="fas fa-edit"></i><%end%>,<%= link_to  document, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="fas fa-trash-alt"></i><%end%></h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Book document</a> </div>
+                    </div>
+                </div>
+            </div>
+          <% end %>  
+        </div>
+    </div>
+</main>
+</div>
 
-                            <%end%>
+
+

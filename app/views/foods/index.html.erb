@@ -1,36 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+  <h4>Food Department</h4>
+<main>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    <%= link_to  new_food_path do %>
+            <button type="button" class="btn btn-primary mb-3">
+              ADD FOOD
+            </button>
+          <% end %>
 
-<h1>Foods</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Availability</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @foods.each do |food| %>
-      <tr>
-        <td><%= food.name %></td>
-        <td><%= food.category %></td>
-        <td><%= food.availability %></td>
-        <td><%= food.price %></td>
-        <td>
-        <img src="<%=food.image%>"/>
-        </td>
-        <td><%= link_to 'Show', food %></td>
-        <td><%= link_to 'Edit', edit_food_path(food) %></td>
-        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Food', new_food_path %>
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+          <% @foods.each do |food| %>
+            <div class="col">
+                <div class="card h-100 shadow-sm"> <img src="<%= food.image %>" class="card-img-top" alt="...">
+                    <div class="label-top shadow-sm"><%= food.category %></div>
+                    <div class="card-body">
+                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary"><%= food.name %></span> <span class="float-end price-hp">Rs.<%= food.price %></span> </div>
+                        <h5 class="card-title">food description <%= link_to 'Show', food %>,<%= link_to  edit_food_path(food) do %><i class="fas fa-edit"></i><%end%>,<%= link_to  food, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="fas fa-trash-alt"></i><%end%></h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Order Food</a> </div>
+                        <div class="float-start price-hp"><%= food.availability %></div>
+                    </div>
+                </div>
+            </div>
+          <% end %>  
+        </div>
+    </div>
+</main>
+</div>

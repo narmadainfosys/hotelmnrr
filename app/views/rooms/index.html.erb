@@ -1,37 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+  <h4>Room Department</h4>
+<main>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    <%= link_to  new_room_path do %>
+            <button type="button" class="btn btn-primary mb-3">
+              ADD room
+            </button>
+          <% end %>
 
-<h1>Rooms</h1>
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+          <% @rooms.each do |room| %>
+            <div class="col">
+                <div class="card h-100 shadow-sm"> <img src="<%= room.image %>" class="card-img-top" alt="...">
+                    <div class="label-top shadow-sm"><%= room.availabilty %></div>
+                    <div class="card-body">
+                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary"><%= room.room_no %></span> <span class="float-end price-hp">Rs.<%= room.price %></span> </div>
+                        <h5 class="card-title">room description <%= link_to 'Show', room %>,<%= link_to  edit_room_path(room) do %><i class="fas fa-edit"></i><%end%>,<%= link_to  room, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="fas fa-trash-alt"></i><%end%></h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Book room</a> </div>
+                    </div>
+                </div>
+            </div>
+          <% end %>  
+        </div>
+    </div>
+</main>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Room no</th>
-      <th>Availabilty</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th>Floor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.room_no %></td>
-        <td><%= room.availabilty %></td>
-        <td><%= room.price %></td>
-        <td><%= room.floor %></td>
-        <td>
-        <img src="<%=room.image%>"/>
-        </td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Room', new_room_path %>

@@ -1,9 +1,6 @@
-<%= render 'shared/sidebar' %>
-
 <div id="main">
   <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
-  <h2>Collapsed Sidebar</h2>
-  <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+  <h2>Hotel Management System</h2>
   <% if current_user == "Manager" %>
         <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
         

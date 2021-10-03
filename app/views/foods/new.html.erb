@@ -1,5 +1,9 @@
-<h1>New Food</h1>
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+  <%= render 'form', food: @food %>
+  <%= link_to 'Back', foods_path %>
+</div>
 
-<%= render 'form', food: @food %>
 
-<%= link_to 'Back', foods_path %>
+
+
