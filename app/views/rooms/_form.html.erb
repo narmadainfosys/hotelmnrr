@@ -1,45 +1,55 @@
-<%= form_with(model: room) do |form| %>
-  <% if room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <main class="page payment-page">
+    <section class="payment-form dark">
+      <div class="container">
+        <%= form_with(model: room) do |form| %>
+          <% if room.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
 
-      <ul>
-        <% room.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+              <ul>
+                <% room.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="products">
+            <h3 class="title">room Entry</h3>
+            <div class="card-details">
+            <div class="row">
+              <div class="form-group col-sm-7">
+                <label for="card-holder">Room No</label>
+                <%= form.text_field :room_no, placeholder:"Room No", class:"form-control" %>
+              </div>
+              <div class="form-group col-sm-5">
+                <label for="">Price</label>
+                <%= form.text_field :price, placeholder:"Price", class:"form-control" %>
+              </div>
+              <div class="form-group col-sm-8">
+                <label for="card-number">Image</label>
+                <%= form.file_field :image, placeholder:"Price", class:"form-control" %>
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="cvc">Floor</label>
+                <%= form.select :floor, [['Select an option', nil], 'First', 'Second','Third'], class:"form-control" %>
+              </div>
+              <div class="form-group col-sm-4">
+                <%= check_box_tag(:availability) %>
+                <%= label_tag(:availability, "Available") %>
+              </div>
+              <div class="form-group col-sm-12">
+                <%= form.submit "Submit", class:"btn btn-primary btn-block" %>  
+                <%= link_to 'Back', rooms_path %>
+              </div>
+            </div>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+      </div>
+    </section>
+  </main>
 
-  <div class="field">
-    <%= form.label :room_no %>
-    <%= form.text_field :room_no %>
-  </div>
 
-  <div class="field">
-    <%= form.label :availabilty %>
-    <%= form.check_box :availabilty %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
 
-   <div class="field">
-    <fieldset>
-      <%= form.label :image, 'image' %>
-      <%= form.hidden_field :image_cache %>
-      <%= form.file_field :image%>
-   </fieldset>
-  </div>
-
-  <div class="field">
-    <%= form.label :floor %>
-    <%= form.text_field :floor %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

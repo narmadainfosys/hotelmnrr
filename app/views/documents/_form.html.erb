@@ -1,19 +1,41 @@
-<%= form_for @document do |f| %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <main class="page payment-page">
+    <section class="payment-form dark">
+      <div class="container">
+        <%= form_with(model: document) do |form| %>
+          <% if document.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
 
-	<div class="">
-		<div class="field">
-  <fieldset>
-  <%= f.label :image, 'image' %>
-  <%= f.hidden_field :image_cache %>
-  <%= f.file_field :image%>
-</fieldset>
+              <ul>
+                <% document.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-  </div>
-        <%= link_to :back do %><span class="">cancel</span><% end %>
-		</div>
-		<div class="">
-		<%= f.submit "add" , class:"" %>
-		</div>
-	</div>
+          <div class="products">
+            <h3 class="title">Document Entry</h3>
+            <div class="card-details">
+            <div class="row">
+              
+              <div class="form-group col-sm-8">
+                <label for="card-number">Image</label>
+                <%= form.file_field :image, placeholder:"Price", class:"form-control" %>
+              </div>
+              
+              <div class="form-group col-sm-12">
+                <%= form.submit "Submit", class:"btn btn-primary btn-block" %>
+                <%= link_to 'Back', documents_path %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </main>
 
-<% end %>
+
+
+
