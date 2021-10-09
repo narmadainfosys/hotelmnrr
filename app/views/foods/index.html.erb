@@ -1,5 +1,6 @@
 <div id="main">
-  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+  <%# <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>   %>
+  <%= render partial: 'shared/navbar'%>
   <h4>Food Department</h4>
 <main>
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
@@ -17,7 +18,7 @@
                     <div class="card-body">
                         <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary"><%= food.name %></span> <span class="float-end price-hp">Rs.<%= food.price %></span> </div>
                         <h5 class="card-title">food description <%= link_to 'Show', food %>,<%= link_to  edit_food_path(food) do %><i class="fas fa-edit"></i><%end%>,<%= link_to  food, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="fas fa-trash-alt"></i><%end%></h5>
-                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Order Food</a> </div>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">order food</a> </div>
                         <div class="float-start price-hp"><%= food.availability %></div>
                     </div>
                 </div>

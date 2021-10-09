@@ -1,11 +1,16 @@
 <div id="main">
-  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+<%= render partial: 'shared/navbar'%>
+  <%# <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>   %>
   <h2>Hotel Management System</h2>
-  <% if current_user == "Manager" %>
+  <% if current_user.role == "Manager" %>
         <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
         
         <% else %>
-          Not Mnager
+          <%= link_to foods_path, :method => "get" do%>
+            <button type="button" class="btn btn-primary">
+              order food
+            </button>
+          <% end %>
           <%= render partial: "shared/order_food", locals: { foods: @foods } %>
           <%= render partial: "shared/book_room", locals: { rooms: @rooms } %>
         <% end %>
