@@ -1,18 +1,11 @@
+  <div id="main">
+  <%# <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>   %>
+  <%= render partial: 'shared/navbar'%>
+<main>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+          <%= render 'orders/partial/orderFood'%>
+    </div>
+    </div>
+</main>
+</div>
 
-
-
-  <%= render 'shared/sidebar' %>
-
-  <!-- Main Wrapper -->
-  <div class="p-1 my-container active-cont">
-    <!-- Top Nav -->
-    <nav class="navbar top-navbar navbar-light bg-light px-5">
-      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
-    </nav>
-    <!--End Top Nav -->
-    <h3 class="text-dark p-3">WELCOME 💻 📱
-        <%= render 'orders/partial/orderFood'%>
-    </h3>
-  </div>
-
-  <%= render 'shared/sidejs' %>

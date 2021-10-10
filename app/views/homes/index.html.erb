@@ -6,7 +6,7 @@
         <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
         
         <% else %>
-          <%= link_to foods_path, :method => "get" do%>
+          <%= link_to orders_path, :method => "get" do%>
             <button type="button" class="btn btn-primary">
               order food
             </button>

@@ -40,7 +40,11 @@
           GUEST ENTRY
         </h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Edit Guest</a>
+          <%= link_to documents_path, :method => "get" do %>
+            <button type="button" class="btn btn-primary">
+              Edit Guest
+            </button>
+          <% end %>
       </div>
     </div>
   </div>
