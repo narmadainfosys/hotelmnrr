@@ -17,7 +17,24 @@
                     <div class="card-body">
                         <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary"><%= food.name %></span> <span class="float-end price-hp">Rs.<%= food.price %></span> </div>
                         <h5 class="card-title">food description </h5>
-                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">order food</a> </div>
+                        <div class="text-center my-4"> 
+                        
+                         <%= form_with(model: @order, local: true) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.submit "Sign Up" %>
+
+<% end %>
+
+                          <a href="#" class="btn btn-warning">
+                            order food
+                          </a>
+                        </div>
                         <div class="float-start price-hp"><%= food.availability %></div>
                     </div>
                 </div>
