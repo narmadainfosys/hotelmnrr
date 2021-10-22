@@ -1,30 +1,46 @@
 class OrdersController < ApplicationController
-
-  before_action :initialize_item, only: [:index]
-
+  before_action :set_orders, only: [:destroy]
   def index
-    @order_items = Item.new
     @foods = Food.all
-    @order = Order.all
+    @orders = Order.all
   end
 
-  def update
+  def new
+    @order = Order.new
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
+  def destroy
+    # order.find(params[:id]).destroy
+    @order.destroy
+    respond_to do |format|
+      format.html { redirect_to orders_path, notice: ' order was successfully destroyed.' }
+    end
+  end
+  
   def create
-    @item = Item.create(ite,_params)
+    @order = Order.new(order_params)
+
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to orders_path notice: 'order was successfully created' }
+      end
   end
 
-  def delete
+  
+end
+
+private
+  def set_orders
+    @order = Order.find(params[:id])
   end
 
-  private
-   def initialize_item
-     @item = Item.new
-   end
-
-
-
+  def order_params
+    params.require(:order).permit(:name)
+  end
 end
 
 
