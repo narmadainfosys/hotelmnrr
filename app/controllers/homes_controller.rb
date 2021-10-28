@@ -4,5 +4,6 @@ class HomesController < ApplicationController
     @foods = Food.all
     @rooms = Room.all
     @current_user = current_user
+    @orders = Order.all
   end
 end

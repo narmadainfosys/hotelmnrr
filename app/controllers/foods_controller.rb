@@ -3,6 +3,7 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
+    # @order = Order.new
     @foods = Food.all
   end
 
@@ -21,6 +22,7 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
+
     @food = Food.new(food_params)
 
     respond_to do |format|
@@ -66,4 +68,8 @@ class FoodsController < ApplicationController
     def food_params
       params.require(:food).permit(:name, :category, :availability, :price, :image)
     end
+
+    
+   
+   
 end

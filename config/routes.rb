@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :foods
   resources :posts
   resources :records
+  resources :userorders
+
   get 'dogs/index'
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in

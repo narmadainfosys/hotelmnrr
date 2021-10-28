@@ -4,12 +4,13 @@
   <h4>Food Department</h4>
 <main>
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    
+
     <%= link_to  new_food_path do %>
             <button type="button" class="btn btn-primary mb-3">
               ADD FOOD
             </button>
           <% end %>
-
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
           <% @foods.each do |food| %>
             <div class="col">

@@ -17,7 +17,15 @@
                     <div class="card-body">
                         <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary"><%= food.name %></span> <span class="float-end price-hp">Rs.<%= food.price %></span> </div>
                         <h5 class="card-title">food description </h5>
-                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">order food</a> </div>
+                        <div class="text-center my-4"> 
+                          <%# -hidden order form--- %>
+                          
+                        </div>
+                        <%= form_for Order.new do |form| %>
+                              <%= form.hidden_field :user_id, value: current_user.id %>
+                              <%= form.hidden_field :food_id, value: food.id %>
+                              <%= form.submit "submit"%>
+                            <% end %>
                         <div class="float-start price-hp"><%= food.availability %></div>
                     </div>
                 </div>
