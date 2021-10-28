@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     # order.find(params[:id]).destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_path, notice: ' order was successfully destroyed.' }
+      format.html { redirect_to userorders_path, notice: ' order was successfully destroyed.' }
     end
   end
   
@@ -39,7 +39,7 @@ private
   end
 
   def order_params
-    params.require(:order).permit(:name)
+    params.require(:order).permit(:name, :food_id, :user_id)
   end
 end
 

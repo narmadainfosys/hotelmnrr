@@ -3,7 +3,6 @@
   <%= render partial: 'shared/navbar'%>
 <main>
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
-    
     <%= link_to  new_food_path do %>
             <button type="button" class="btn btn-primary mb-3">
               cart
@@ -20,10 +19,13 @@
                         <h5 class="card-title">food description </h5>
                         <div class="text-center my-4"> 
                           <%# -hidden order form--- %>
-                          <a href="#" class="btn btn-warning">
-                            order food
-                          </a>
+                          
                         </div>
+                        <%= form_for Order.new do |form| %>
+                              <%= form.hidden_field :user_id, value: current_user.id %>
+                              <%= form.hidden_field :food_id, value: food.id %>
+                              <%= form.submit "submit"%>
+                            <% end %>
                         <div class="float-start price-hp"><%= food.availability %></div>
                     </div>
                 </div>

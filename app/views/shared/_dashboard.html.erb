@@ -8,6 +8,24 @@
           FOOD ENTRY
         </h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <%= link_to userorders_path, :method => "get" do%>
+            <button type="button" class="btn btn-primary">
+              Order
+            </button>
+          <% end %>
+      </div>
+    </div>
+
+
+  <div class="row">
+  <%# ----for food order--------- %>
+    <div class="card mx-2 my-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fas fa-utensils"></i>
+          FOOD ENTRY
+        </h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <%= link_to foods_path, :method => "get" do%>
             <button type="button" class="btn btn-primary">
               FOOD
