@@ -24,6 +24,7 @@
                         <%= form_for Order.new do |form| %>
                               <%= form.hidden_field :user_id, value: current_user.id %>
                               <%= form.hidden_field :food_id, value: food.id %>
+                              <%= form.hidden_field :name, value: food.name %>
                               <%= form.submit "submit"%>
                             <% end %>
                         <div class="float-start price-hp"><%= food.availability %></div>

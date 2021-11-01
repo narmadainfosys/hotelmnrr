@@ -54,7 +54,11 @@ body {
   }
 
   .nostyle {
-    text-decoration: none;   
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background: none;
+
 }
 
 // -------footer------------

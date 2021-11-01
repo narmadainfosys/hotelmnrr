@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :rooms
   get 'orders/index'
+
   resources :foods
   resources :posts
   resources :records
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
+  mount Notifications::Engine => "/notifications"
+
   resources :pages
   resources :orders
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

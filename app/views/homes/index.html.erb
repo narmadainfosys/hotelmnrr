@@ -5,14 +5,7 @@
   <% if current_user.role == "Manager" %>
         <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
         
-        <% else %>
-          <%= link_to orders_path, :method => "get" do%>
-            <button type="button" class="btn btn-primary">
-              order food
-            </button>
-          <% end %>
-          <%= render partial: "shared/order_food", locals: { foods: @foods } %>
-          <%= render partial: "shared/book_room", locals: { rooms: @rooms } %>
+        
         <% end %>
         
 </div>

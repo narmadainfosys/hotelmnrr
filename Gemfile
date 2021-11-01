@@ -68,3 +68,6 @@ gem 'carrierwave'
 gem 'cloudinary'
 
 gem 'airbrake'
+
+#for notifications
+gem 'notifications'

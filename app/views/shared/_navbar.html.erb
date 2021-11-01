@@ -1,15 +1,33 @@
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-light bg-light fixed-top ">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
+    
         <%= link_to  destroy_user_session_path, method: :delete, class: 'nostyle' do%>
             <i class="fas fa-sign-out-alt"></i>
             Logout
           <% end %>
-          <%= current_user.name %>
     </a>
+    
+    <% if current_user.role == "Manager" %>
+      <div class="dropdown navbar-brand">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-bell"></i> <%= Notification.all.count %>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+        <% Notification.all.order("created_at DESC").limit(15).each do |notification| %>
+          <li><a class="dropdown-item" href="#">
+          <%= notification.user.name %> ordered <%= notification.target.name%>
+          </a></li>
+        <% end %>
+          
+        </ul>
+      </div>
+    <% end%>  
+
+
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">HMS</h5>
@@ -17,6 +35,7 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">
               <%= link_to "Home", root_path, class: 'nostyle'  %>
@@ -25,10 +44,18 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
+          
+            <li class="nav-item">
+                 <%= link_to orders_path, class: 'nostyle nav-link active', :method => "get" do%>
+                    order food
+                <% end %>
+            </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
+            
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
