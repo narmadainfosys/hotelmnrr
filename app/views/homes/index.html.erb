@@ -2,10 +2,9 @@ hi<div id="main">
 <%= render partial: 'shared/navbar'%>
   <%# <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>   %>
   <h2>Hotel Management System</h2>
-  <% if current_user.role == "Manager" %>
         <%= render partial: 'shared/dashboard', locals: {foods: @foods } %> 
         
         
-        <% end %>
+        
         
 </div>
